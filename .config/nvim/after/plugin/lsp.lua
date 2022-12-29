@@ -3,11 +3,6 @@ if not setup_lsp then
 	return
 end
 
-local setup_cmp, cmp = pcall(require, "cmp")
-if not setup_cmp then
-	return
-end
-
 local null_ls_setup, null_ls = pcall(require, "null-ls")
 if not null_ls_setup then
 	return
@@ -35,18 +30,6 @@ lsp.ensure_installed({
 	"yamlls",
 	"sumneko_lua",
 })
-
--- local cmp_select = { behavior = cmp.SelectBehavior.Select }
--- local cmp_mappings = lsp.defaults.cmp_mappings({
--- 	["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
--- 	["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
--- 	["<C-y>"] = cmp.mapping.confirm({ select = true }),
--- 	["<C-Space>"] = cmp.mapping.complete(),
--- })
---
--- lsp.setup_nvim_cmp({
--- 	mappings = cmp_mappings,
--- })
 
 local function on_attach(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }

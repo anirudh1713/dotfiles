@@ -29,6 +29,7 @@ return require("packer").startup(function(use)
 	use("sainnhe/gruvbox-material")
 	use("sainnhe/everforest")
 	use("arcticicestudio/nord-vim")
+	use("EdenEast/nightfox.nvim")
 
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
@@ -70,6 +71,7 @@ return require("packer").startup(function(use)
 		},
 	})
 	use("simrat39/rust-tools.nvim")
+	use("onsails/lspkind.nvim")
 
 	-- formatting and linting
 	use("jose-elias-alvarez/null-ls.nvim")
@@ -77,7 +79,7 @@ return require("packer").startup(function(use)
 
 	use("nvim-tree/nvim-web-devicons")
 
-	-- use("lukas-reineke/indent-blankline.nvim")
+	use("lukas-reineke/indent-blankline.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
