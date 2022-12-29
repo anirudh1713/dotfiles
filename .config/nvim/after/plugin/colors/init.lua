@@ -19,4 +19,4 @@ function ColorNvim(color)
 	-- vim.cmd("hi EndOfBuffer guibg=none ctermbg=none")
 end
 
-ColorNvim("gruvbox-material")
+ColorNvim("catppuccin")

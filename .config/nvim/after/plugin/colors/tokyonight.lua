@@ -4,9 +4,9 @@ if not tokyonight_setup then
 end
 
 tokyonight.setup({
-	transparent = true,
-    styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-	},
+	transparent = false,
+	-- styles = {
+	--   sidebars = "transparent",
+	--   floats = "transparent",
+	-- },
 })
