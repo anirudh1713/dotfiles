@@ -16,10 +16,12 @@ return require("packer").startup(function(use)
 
   use({
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.0",
+    tag = "0.1.1",
     -- or                            , branch = '0.1.x',
     requires = { { "nvim-lua/plenary.nvim" } },
   })
+
+  use ({'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 
   -- colorschemes
   use("ellisonleao/gruvbox.nvim")
@@ -44,6 +46,7 @@ return require("packer").startup(function(use)
   -- git
   use("lewis6991/gitsigns.nvim")
   use("tpope/vim-fugitive")
+  use("tpope/vim-rhubarb")
   use("ThePrimeagen/git-worktree.nvim")
 
   -- auto closing
@@ -52,28 +55,32 @@ return require("packer").startup(function(use)
 
   -- lsp
   use({
-    "VonHeikemen/lsp-zero.nvim",
+    -- "VonHeikemen/lsp-zero.nvim",
+    "neovim/nvim-lspconfig",
     requires = {
-      -- LSP Support
-      { "neovim/nvim-lspconfig" },
       { "williamboman/mason.nvim" },
       { "williamboman/mason-lspconfig.nvim" },
-
-      -- Autocompletion
-      { "hrsh7th/nvim-cmp" },
-      { "hrsh7th/cmp-buffer" },
-      { "hrsh7th/cmp-path" },
-      { "saadparwaiz1/cmp_luasnip" },
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "hrsh7th/cmp-nvim-lua" },
-
-      -- Snippets
-      { "L3MON4D3/LuaSnip" },
-      { "rafamadriz/friendly-snippets" },
+      { "j-hui/fidget.nvim" },
+      { "folke/neodev.nvim" },
     },
   })
-  use("simrat39/rust-tools.nvim")
-  use("onsails/lspkind.nvim")
+
+  -- Autocompletion
+  use({
+    "hrsh7th/nvim-cmp",
+    requires = {
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "L3MON4D3/LuaSnip" },
+      { "saadparwaiz1/cmp_luasnip" },
+      { "rafamadriz/friendly-snippets" },
+      -- { "hrsh7th/cmp-buffer" },
+      -- { "hrsh7th/cmp-path" },
+    }
+  })
+
+  use("folke/which-key.nvim")
+  -- use("simrat39/rust-tools.nvim")
+  -- use("onsails/lspkind.nvim")
 
   -- formatting and linting
   use("jose-elias-alvarez/null-ls.nvim")
