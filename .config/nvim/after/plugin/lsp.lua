@@ -40,7 +40,13 @@ local on_attach = function(_, bufnr)
 
 	-- Create a command `:Format` local to the LSP buffer
 	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-		vim.lsp.buf.format()
+    vim.lsp.buf.format({
+      bufnr = bufnr,
+      filter = function(client)
+    	  return client.name == "null-ls"
+      end
+    })
+    print("File formatted")
 	end, { desc = "Format current buffer with LSP" })
 end
 
@@ -98,50 +104,50 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 
--- null-ls setup for formatting and diagnostics
-local null_ls = require("null-ls")
--- local null_opts = lsp.build_options("null-ls", {})
-
-local formatting = null_ls.builtins.formatting
-local diagnostics = null_ls.builtins.diagnostics
-local completion = null_ls.builtins.completion
-local code_actions = null_ls.builtins.code_actions
-
--- to setup format on save
-local fmt_group = vim.api.nvim_create_augroup("FORMATTING", { clear = true })
-
-null_ls.setup({
-	sources = {
-		formatting.prettier,
-		formatting.stylua,
-		formatting.rustfmt,
-		code_actions.eslint,
-		diagnostics.eslint,
-		completion.spell,
-	},
-	-- configure format on save
-	-- on_attach = function(current_client, bufnr)
-	--   null_opts.on_attach(current_client, bufnr)
-	--   if current_client.supports_method("textDocument/formatting") then
-	--     vim.api.nvim_create_autocmd("BufWritePre", {
-	--       group = fmt_group,
-	--       buffer = bufnr,
-	--       callback = function()
-	--         vim.lsp.buf.format({
-	--           timeout_ms = 3000,
-	--           buffer = bufnr,
-	--         })
-	--       end,
-	--     })
-	--   end
-	-- end,
-})
-
-vim.diagnostic.config({
-	virtual_text = {
-		source = "always",
-	},
-	float = {
-		source = "always",
-	},
-})
+-- -- null-ls setup for formatting and diagnostics
+-- local null_ls = require("null-ls")
+-- -- local null_opts = vim.lsp.build_options("null-ls", {})
+--
+-- local formatting = null_ls.builtins.formatting
+-- local diagnostics = null_ls.builtins.diagnostics
+-- local completion = null_ls.builtins.completion
+-- local code_actions = null_ls.builtins.code_actions
+--
+-- -- to setup format on save
+-- local fmt_group = vim.api.nvim_create_augroup("FORMATTING", { clear = true })
+--
+-- null_ls.setup({
+-- 	sources = {
+-- 		formatting.prettierd,
+-- 		formatting.stylua,
+-- 		formatting.rustfmt,
+-- 		code_actions.eslint_d,
+-- 		diagnostics.eslint_d,
+-- 		completion.spell,
+-- 	},
+-- 	-- configure format on save
+-- 	-- on_attach = function(current_client, bufnr)
+-- 	--   null_opts.on_attach(current_client, bufnr)
+-- 	--   if current_client.supports_method("textDocument/formatting") then
+-- 	--     vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	--       group = fmt_group,
+-- 	--       buffer = bufnr,
+-- 	--       callback = function()
+-- 	--         vim.lsp.buf.format({
+-- 	--           timeout_ms = 3000,
+-- 	--           buffer = bufnr,
+-- 	--         })
+-- 	--       end,
+-- 	--     })
+-- 	--   end
+-- 	-- end,
+-- })
+--
+-- vim.diagnostic.config({
+-- 	virtual_text = {
+-- 		source = "always",
+-- 	},
+-- 	float = {
+-- 		source = "always",
+-- 	},
+-- })

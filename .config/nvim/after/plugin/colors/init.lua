@@ -1,6 +1,6 @@
-require("tokyonight")
-require("catppuccin")
-require("rose-pine")
+require("rose-pine").setup({
+  disable_background = true
+})
 
 function ColorNvim(color)
   -- vim.cmd([[
@@ -9,11 +9,17 @@ function ColorNvim(color)
   color = color or "tokyonight"
   vim.cmd.colorscheme(color)
 
+  -- vim.g.PaperColor_Theme_Options = {
+  --   theme = {
+  --     default = {
+  --       allow_bold = 0
+  --     }
+  --   }
+  -- }
+
   -- vim.cmd([[
   --   let g:gruvbox_material_background='hard'
   -- ]])
-
-  
 
   -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
   -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
@@ -46,4 +52,4 @@ function ColorNvim(color)
   -- vim.cmd("hi EndOfBuffer guibg=none ctermbg=none")
 end
 
-ColorNvim("gruvbox-material")
+ColorNvim("rose-pine")

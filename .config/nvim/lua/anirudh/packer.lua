@@ -33,6 +33,7 @@ return require("packer").startup(function(use)
   use("arcticicestudio/nord-vim")
   use("EdenEast/nightfox.nvim")
   use("sainnhe/sonokai")
+  use("NLKNguyen/papercolor-theme")
 
   use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
@@ -91,6 +92,30 @@ return require("packer").startup(function(use)
   use("lukas-reineke/indent-blankline.nvim")
 
   use("nvim-tree/nvim-tree.lua")
+
+  use("github/copilot.vim")
+
+ --  use({
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	event = { "VimEnter" },
+	-- 	config = function()
+	-- 		vim.defer_fn(function()
+	-- 			require("copilot").setup()
+	-- 		end, 100)
+	-- 	end,
+	-- })
+	--
+	-- use({
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	after = { "copilot.lua" },
+	-- 	config = function()
+	-- 		require("copilot_cmp").setup()
+	-- 	end,
+	-- })
+
+	use({
+		"hrsh7th/cmp-emoji",
+	})
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -4,6 +4,8 @@ vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>") -- clear search
 
 vim.keymap.set("n", "<leader>pw", ":Ex<CR>")
 
+vim.keymap.set("n", "<leader>w", ":update<cr>")
+
 -- window splitting
 vim.keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 vim.keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontall
