@@ -36,6 +36,7 @@ return require("packer").startup(function(use)
   use("NLKNguyen/papercolor-theme")
 
   use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+  use("nvim-treesitter/nvim-treesitter-context")
 
   use("ThePrimeagen/harpoon")
   use("mbbill/undotree")
@@ -93,25 +94,25 @@ return require("packer").startup(function(use)
 
   use("nvim-tree/nvim-tree.lua")
 
-  use("github/copilot.vim")
+  -- use("github/copilot.vim")
 
- --  use({
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	event = { "VimEnter" },
-	-- 	config = function()
-	-- 		vim.defer_fn(function()
-	-- 			require("copilot").setup()
-	-- 		end, 100)
-	-- 	end,
-	-- })
-	--
-	-- use({
-	-- 	"zbirenbaum/copilot-cmp",
-	-- 	after = { "copilot.lua" },
-	-- 	config = function()
-	-- 		require("copilot_cmp").setup()
-	-- 	end,
-	-- })
+  use({
+		"zbirenbaum/copilot.lua",
+		event = { "VimEnter" },
+		config = function()
+			vim.defer_fn(function()
+				require("copilot").setup()
+			end, 100)
+		end,
+	})
+
+	use({
+		"zbirenbaum/copilot-cmp",
+		after = { "copilot.lua" },
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	})
 
 	use({
 		"hrsh7th/cmp-emoji",
