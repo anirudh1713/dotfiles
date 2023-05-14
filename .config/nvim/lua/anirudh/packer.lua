@@ -34,6 +34,7 @@ return require("packer").startup(function(use)
   use("EdenEast/nightfox.nvim")
   use("sainnhe/sonokai")
   use("NLKNguyen/papercolor-theme")
+  use("rebelot/kanagawa.nvim")
 
   use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
   use("nvim-treesitter/nvim-treesitter-context")
