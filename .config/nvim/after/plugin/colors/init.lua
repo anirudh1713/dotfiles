@@ -1,11 +1,16 @@
-require("rose-pine").setup({
-  disable_background = true
-})
-
 function ColorNvim(color)
   -- vim.cmd([[
   --   let g:everforest_transparent_background=1
   -- ]])
+
+  vim.cmd([[
+    let g:gruvbox_bold=0
+  ]])
+
+  vim.cmd([[
+    let g:gruvbox_italic=0
+  ]])
+
   color = color or "tokyonight"
   vim.cmd.colorscheme(color)
 
@@ -15,11 +20,8 @@ function ColorNvim(color)
   --       allow_bold = 0
   --     }
   --   }
-  -- }
+  -- } 
 
-  -- vim.cmd([[
-  --   let g:gruvbox_material_background='hard'
-  -- ]])
 
   -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
   -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
@@ -52,4 +54,4 @@ function ColorNvim(color)
   -- vim.cmd("hi EndOfBuffer guibg=none ctermbg=none")
 end
 
-ColorNvim("rose-pine")
+ColorNvim("kanagawa")

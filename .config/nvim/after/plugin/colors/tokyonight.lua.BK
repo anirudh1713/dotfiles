@@ -1,0 +1,13 @@
+local tokyonight_setup, tokyonight = pcall(require, "tokyonight")
+if not tokyonight_setup then
+  return
+end
+
+tokyonight.setup({
+  -- style = "night",
+  transparent = flase,
+  -- styles = {
+  --   sidebars = "transparent",
+  --   floats = "transparent",
+  -- },
+})

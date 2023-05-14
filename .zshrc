@@ -107,11 +107,20 @@ export NVM_DIR="$HOME/.nvm"
 
 # pnpm
 export PNPM_HOME="/home/ani/.local/share/pnpm"
-export PATH="$(yarn global bin):$PNPM_HOME:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
 #
+
+eval "$(zoxide init zsh)"
 
 docker_reset() {
   docker stop $(docker ps -a -q);
   docker rm $(docker ps -a -q);
 }
+
+list_port() { lsof -t -i :$1; }
+free_port() { list_port $1 | xargs -r kill }
+kill_port() { list_port $1 | xargs -r kill -kill }
